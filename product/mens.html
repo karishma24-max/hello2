@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>men</title>
+    <link rel="stylesheet" href="mens.html">
+    <link rel="stylesheet" href="women.html">
+    <link rel="stylesheet" href="signup.html">
+    <link rel="stylesheet" href="codepen.html">
+    <link rel="stylesheet" href="login.html">
+    <link rel="stylesheet" href="navbar.html">
+    <style>
+    
+        button{
+                width:100px;
+                height:30px;
+                
+            }
+            #container{
+            display:grid;
+                grid-template-columns: repeat(4,200px);
+                grid-template-rows: repeat(4,auto);
+                gap:20px;
+            }
+    </style>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+</html>
+<script>
+
+
+
+
+var shoesArr=JSON.parse(localStorage.getItem("shoeinfo"))
+shoesArr.forEach(function(elem){
+var box=document.createElement("div");
+var shoepic=document.createElement("img");
+shoepic.setAttribute("src",elem.shoeimage)
+var shoebrand=document.createElement("h3");
+shoebrand.innerText=elem.shoesname;
+var shoerupees=document.createElement("h3");
+shoerupees.innerText=elem.shoescost;
+var shoecart=document.createElement("button")
+shoecart.innerText="Add to Cart"
+
+box.append(shoepic,shoebrand,shoerupees,shoecart);
+document.querySelector("#container").append(box);
+
+});
+console.log(shoesArr);
+
+</script>
